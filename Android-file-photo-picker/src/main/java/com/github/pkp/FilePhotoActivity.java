@@ -22,7 +22,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.pkp.databinding.ActivityChooseFileBinding;
+import com.github.pkp.databinding.ActivityFilePhotoBinding;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -80,7 +80,7 @@ public class FilePhotoActivity extends AppCompatActivity {
                     finish();
                 }
             });
-    ActivityChooseFileBinding binding;
+    ActivityFilePhotoBinding binding;
     private String mCurrentPhotoPath;
     ActivityResultLauncher<Intent> imageCaptureLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -126,6 +126,7 @@ public class FilePhotoActivity extends AppCompatActivity {
             public void onGranted() {
                 openAttachments();
             }
+
             @Override
             public void onDeny() {
                 if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q && (!ActivityCompat.shouldShowRequestPermissionRationale(FilePhotoActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE))) {
@@ -170,7 +171,7 @@ public class FilePhotoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.transparent)));
-        binding = ActivityChooseFileBinding.inflate(getLayoutInflater());
+        binding = ActivityFilePhotoBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Intent intent = getIntent();
         if (intent == null) {
@@ -242,7 +243,7 @@ public class FilePhotoActivity extends AppCompatActivity {
      */
     public void showAlertForAppInfoScreen(Context context, int vector, String message) {
         final Dialog dialog = new Dialog(context);
-        dialog.setContentView(R.layout.permission_alert_popup);
+        dialog.setContentView(R.layout.alert_popup_permission);
         Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawableResource(android.R.color.transparent);
         Window window = dialog.getWindow();
         WindowManager.LayoutParams wlp;
