@@ -46,7 +46,7 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
                 groupId = 'com.github.pintukumarpatil'
-                artifactId = 'android-file-photo-picker'
+                artifactId = 'file-photo-picker'
                 version = '1.2'
             }
         }
