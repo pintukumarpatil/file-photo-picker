@@ -22,14 +22,17 @@ import androidx.appcompat.app.AppCompatActivity;
 public class PickerActivity extends AppCompatActivity {
     private ActivityPickerBinding binding;
     String TAG = PickerActivity.class.getName();
+    private static final String SEPARATOR = ",\n";
     FileHandler pathHandler = new FileHandler() {
         @Override
         public void onSuccess(ArrayList<String> files) {
-            binding.tvPath.setText("");
-            for (String path:files) {
-                binding.tvPath.setText(FileUtils.getName(path));
+            StringBuilder builder = new StringBuilder();
+            for(String path : files){
+                builder.append(FileUtils.getName(path));
+                builder.append(SEPARATOR);
             }
-            Log.e(TAG, files.toString());
+            String paths = builder.toString();
+            binding.tvPath.setText(paths);
         }
     };
 
@@ -42,13 +45,13 @@ public class PickerActivity extends AppCompatActivity {
 
     public void chooseFile(View view) {
         FilePhotoPicker.Options options = new FilePhotoPicker.Options()
-                /*.setPickUsingCamera(true)
-                .setCameraTitle("CAM")
-                .setPickFromDocuments(false)
-                .setDocumentsTitle("DOC")
-                .setPickFromGallery(false)
-                .setGalleryTitle("GAL")
-                .setMultipleSelect(true)*/;
+                .setPickUsingCamera(true)
+                .setCameraTitle("CAMERA")
+                .setPickFromDocuments(true)
+                .setDocumentsTitle("DOCUMENTS")
+                .setPickFromGallery(true)
+                .setGalleryTitle("GALLERY")
+                .setMultipleSelect(true);
         FilePhotoPicker.pick(getBaseContext(), options, pathHandler);
     }
 }
