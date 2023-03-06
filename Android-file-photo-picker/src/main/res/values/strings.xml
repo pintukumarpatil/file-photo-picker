@@ -1,0 +1,27 @@
+<!--
+  ~ /*
+  ~  * Created by https://github.com/braver-tool on 12/10/21, 08:30 PM
+  ~  * Copyright (c) 2021 . All rights reserved.
+  ~  * Last modified 23/03/22, 09:45 AM
+  ~  */
+  -->
+
+<resources>
+    <string name="app_name">FilePicker</string>
+    <string name="image_desc">images</string>
+    <string name="app_title"><u>File Picker</u></string>
+    <string name="app_title_camera">Camera</string>
+    <string name="app_title_gallery">Gallery</string>
+    <string name="app_title_doc">Documents</string>
+    <string name="btn_preview">Click to Preview</string>
+
+    <!-- for permission alert-->
+    <string name="settings_permission">Settings</string>
+    <string name="camera_video_permission">To capture photos and videos, allow access to your camera.\nTap Settings > Permissions, and turn "Camera" on.</string>
+    <string name="storage_permission">To send media, allow access to your device photos, media, and files.\nTap Settings > Permissions, and "Files and media" on.</string>
+    <string name="not_now">Not Now</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="please_grant_required_permissions">Permission Denied!!</string>
+
+</resources>
